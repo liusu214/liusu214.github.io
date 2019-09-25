@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>列表、字典、字符串操作 - liusu的小站</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="liusu,"> 
+    <meta name="description" content="列表列表是可变类型，用[]或list来定义
+
+列表操作list[i:j:k] 列表从0 &amp;lt;= n &amp;lt; (j-i)/k 的索引号 x = i + n* k 的切片
+list[i:-1]不包,"> 
+    <meta name="author" content="liusu"> 
+    <link rel="alternative" href="atom.xml" title="liusu的小站" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">liusu的小站</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">列表、字典、字符串操作</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">列表、字典、字符串操作</h1>
+        <div class="stuff">
+            <span>九月 25, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>列表是可变类型，用[]或list来定义</p>
+<ul>
+<li>列表操作<br>list[i:j:k] 列表从0 &lt;= n &lt; (j-i)/k 的索引号 x = i + n* k 的切片</li>
+<li><em>list[i:-1]不包括最后一个元素，其他同理*</em><br>list.index(a) a在列表中首次出现的索引<br>len(list)、max(list)、min(list) 列表的长度、最大值、最小值<br>del list 删除列表<br>list[index] = x 将列表index项替换为i,找不到会报错<br>list.append()在列表末尾添加元素<br>list.insert(index,a)在特定位置插入元素，耗费计算量大，因为对后续元素的引用必须在内部迁移，以便为新元素提供空间。</li>
+<li><em>当index是-1时，会插入到最后一个值前*</em><br>list.pop(index)删除指定位置的元素，并返回该元素。不填默认删除最后一个，找不到会报错<br>list.remove(值)删除第一个值，找不到会报错<br>list.extend()可以添加多个元素<br>list.sort()可以对列表进行排序，可以添加key指定排序规则，可以设置reverse=True进行反向排序(默认为False)<br>list.reverse()反转列表<br>‘-‘.join(list)，以-为串联符号将列表内元素串联成字符串</li>
+<li>序列函数<br>enumerate函数可以返回(index,value)的元组序列<br>sorted函数，跟sort类似<br>zip函数,可以将多个列表、元组或其他序列成对组合成一个元组列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">seq1 = [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>]</span><br><span class="line">seq2 = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>]</span><br><span class="line">zipped = zip(seq1, seq2)</span><br><span class="line">list(zipped)</span><br><span class="line">[(<span class="string">'foo'</span>, <span class="string">'one'</span>), (<span class="string">'bar'</span>, <span class="string">'two'</span>), (<span class="string">'baz'</span>, <span class="string">'three'</span>)]</span><br><span class="line"><span class="comment"># zip返回的是一个迭代器，只能使用一次</span></span><br><span class="line"><span class="comment"># zip元素个数取决于最短个序列</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>zip可以被用来解压序列，也可以转换行列表为列列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pitchers = [(<span class="string">'Nolan'</span>, <span class="string">'Ryan'</span>), (<span class="string">'Roger'</span>, <span class="string">'Clemens'</span>), (<span class="string">'Schilling'</span>, <span class="string">'Curt'</span>)]</span><br><span class="line">first_names, last_names = zip(*pitchers)</span><br><span class="line">first_names</span><br><span class="line">(<span class="string">'Nolan'</span>, <span class="string">'Roger'</span>, <span class="string">'Schilling'</span>)</span><br><span class="line">last_names</span><br><span class="line">(<span class="string">'Ryan'</span>, <span class="string">'Clemens'</span>, <span class="string">'Curt'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>reversed(list) 反转序列，返回一个迭代器</p>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><p>字典是可变类型，用dict()来定义，以键值对的形式表示</p>
+<ul>
+<li>字符串操作<br>dict[‘key’]访问与键对应的值，<strong>没有会报错</strong><br>dict[key] = value，若有则覆盖，没有则新建<br>del dict 删除字典 dict.pop[key] 删除键值对，没有会报错 dict.popitem()从字典中移除最后一个并返回一个键值对<br>dict.keys() dict.value() 输出键和值<br>dict.update(dict1) 将一个字典和另一个融合<br>dict.get(key)  返回值，*<em>不会报错 *</em></li>
+</ul>
+<p>dict.setdefault(键,数据) 键值对不存在添加键值对，存在则不做处理<br>dict.setdefault(key, []).append(value)  用于for循环中没有key就新建列表，有则添加到列表中<br>dict.items()获取所有键和值，用两个遍历变量<br>dict.values() 返回由字典值组成的新视图</p>
+<ul>
+<li>字典方法<br>len(dict) 返回字典的项数<br>iter(dict) 返回以字典的键为元素的迭代器</li>
+</ul>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串为不可变类型，用str()转化为字符串</p>
+<ul>
+<li>字符串操作<br>string.isalpha()<br>所有都是字母返回True<br>string.isdecimal()<br>所有都是数字返回True<br>string.islower()<br>都是小写字母返回True<br>string.isupper()<br>都是大写字母返回True<br>string.startswith(“a”)<br>检查字符串是否是以 a开头，是则返回 True<br>string.endswith(“a”)<br>检查字符串是否是以 a结束，是则返回 True<br>string.find(str, 0,5) 查找数据第一次出现的索引值，找不到返回-1，也可以指定范围查找<br>string.rfind(str) 反向查找<br>string.count(数据) 类似find()，找不到会报错<br>string.index(str) 类似rfind()，找不到会报错<br>string.replace(‘旧内容’,’新内容’, ‘替换次数’) 替换字符串中的内容，实际上是新建一个字符串<br>string.split(str, maxsplit=-1) 以str为分隔符拆分成列表并返回，给出maxsplit则进行maxsplit此拆分<br>string.lower()转为小写<br>string.upper()转为大写<br>string.lstrip() 把左边的空格去除<br>string.rstrip()把右边的空格去除<br>string.strip() 把左右两边的空格去除<br>str.capitalize() 返回原字符串的副本，首个字符大写，其他小写<br>str.casefold() 返回原字符串消除大小写的副本<br>str.center(width,fillchar) 返回长度为width的字符串，原字符串在中间用fillchar填充两边的空位， 若width小于等于len(str)则返回原字符串的副本<br>str.rjust(width[, fillchar])<br>返回长度为 width 的字符串，原字符串在其中靠右对齐,<br>使用指定的 fillchar 填充空位<br>str.encode(encoding=’utf-8’)返回原字符串编码为字节串对象的版本<br>str.format(* args, ** kwargs) 执行字符串格式化操作<br>str.isalnum() 均为字母或数字返回True<br>str.isdecimal() 均为十进制数字返回True<br>str.isdigit()均为数字返回True<br>str.title() 返回原字符串的标题版本</li>
+</ul>
+<p>统计字符串中每一个字符出现的次数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一</span></span><br><span class="line">words = <span class="string">'asasdgasdcxzsad  bbds  adsads  dsad'</span></span><br><span class="line">word1 = list(words)</span><br><span class="line">dict1 = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> word1:    </span><br><span class="line">    dict1.setdefault(word,word1.count(word))</span><br><span class="line">dict1.pop(<span class="string">' '</span>)</span><br><span class="line">print(dict1)</span><br><span class="line"><span class="comment"># 方法二</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">print(Counter(words))</span><br></pre></td></tr></table></figure>
+
+<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><p>元组是不可变类型，用()创建</p>
+<ul>
+<li>元组操作<br>tuple()将任意序列或迭代器转换为元组<br>元组可以进行加法或乘法，返回一个新对象<br>元组可以进行拆包解包操作：a,b=b,a<br>a,b, * rest = tuple可以将多余的元素去除，rest是一个列表<br><code>*</code> 是一个解包符号<br>可以使用count方法统计某个值出现的频率</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/node_modules/hexo-helper-live2d/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"node_modules/hexo-helper-live2d/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/node_modules/hexo-helper-live2d/assets/assets/miku.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
