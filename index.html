@@ -1,818 +1,198 @@
+
 <!DOCTYPE html>
-
-
-
-
-
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
-
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '7.4.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="liusu的小站">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="liusu的小站">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="liusu的小站">
-  <link rel="canonical" href="http://yoursite.com/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
-  <title>liusu的小站</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+<html lang="zh-CN" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>liusu的小站</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="liusu,"> 
+    
+    <meta name="author" content="liusu"> 
+    <link rel="alternative" href="atom.xml" title="liusu的小站" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">liusu的小站</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">liusu的小站</span>
+    <div id="loader"></div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
         
-        <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-archives">
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-  </ul>
-
-    
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/19498/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liusu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liusu的小站">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/posts/19498/" class="post-title-link" itemprop="url">index</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-25 19:06:43 / 修改时间：20:22:44" itemprop="dateCreated datePublished" datetime="2019-09-25T19:06:43+08:00">2019-09-25</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/33997/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liusu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liusu的小站">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/posts/33997/" class="post-title-link" itemprop="url">列表、字典、字符串操作</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-25 18:55:46 / 修改时间：19:28:21" itemprop="dateCreated datePublished" datetime="2019-09-25T18:55:46+08:00">2019-09-25</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>列表是可变类型，用[]或list来定义</p>
-<ul>
-<li>列表操作<br>list[i:j:k] 列表从0 &lt;= n &lt; (j-i)/k 的索引号 x = i + n* k 的切片</li>
-<li><em>list[i:-1]不包括最后一个元素，其他同理*</em><br>list.index(a) a在列表中首次出现的索引<br>len(list)、max(list)、min(list) 列表的长度、最大值、最小值<br>del list 删除列表<br>list[index] = x 将列表index项替换为i,找不到会报错<br>list.append()在列表末尾添加元素<br>list.insert(index,a)在特定位置插入元素，耗费计算量大，因为对后续元素的引用必须在内部迁移，以便为新元素提供空间。</li>
-<li><em>当index是-1时，会插入到最后一个值前*</em><br>list.pop(index)删除指定位置的元素，并返回该元素。不填默认删除最后一个，找不到会报错<br>list.remove(值)删除第一个值，找不到会报错<br>list.extend()可以添加多个元素<br>list.sort()可以对列表进行排序，可以添加key指定排序规则，可以设置reverse=True进行反向排序(默认为False)<br>list.reverse()反转列表<br>‘-‘.join(list)，以-为串联符号将列表内元素串联成字符串</li>
-<li>序列函数<br>enumerate函数可以返回(index,value)的元组序列<br>sorted函数，跟sort类似<br>zip函数,可以将多个列表、元组或其他序列成对组合成一个元组列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">seq1 = [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>]</span><br><span class="line">seq2 = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>]</span><br><span class="line">zipped = zip(seq1, seq2)</span><br><span class="line">list(zipped)</span><br><span class="line">[(<span class="string">'foo'</span>, <span class="string">'one'</span>), (<span class="string">'bar'</span>, <span class="string">'two'</span>), (<span class="string">'baz'</span>, <span class="string">'three'</span>)]</span><br><span class="line"><span class="comment"># zip返回的是一个迭代器，只能使用一次</span></span><br><span class="line"><span class="comment"># zip元素个数取决于最短个序列</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>zip可以被用来解压序列，也可以转换行列表为列列表</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pitchers = [(<span class="string">'Nolan'</span>, <span class="string">'Ryan'</span>), (<span class="string">'Roger'</span>, <span class="string">'Clemens'</span>), (<span class="string">'Schilling'</span>, <span class="string">'Curt'</span>)]</span><br><span class="line">first_names, last_names = zip(*pitchers)</span><br><span class="line">first_names</span><br><span class="line">(<span class="string">'Nolan'</span>, <span class="string">'Roger'</span>, <span class="string">'Schilling'</span>)</span><br><span class="line">last_names</span><br><span class="line">(<span class="string">'Ryan'</span>, <span class="string">'Clemens'</span>, <span class="string">'Curt'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>reversed(list) 反转序列，返回一个迭代器</p>
-<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><p>字典是可变类型，用dict()来定义，以键值对的形式表示</p>
-<ul>
-<li>字符串操作<br>dict[‘key’]访问与键对应的值，<strong>没有会报错</strong><br>dict[key] = value，若有则覆盖，没有则新建<br>del dict 删除字典 dict.pop[key] 删除键值对，没有会报错 dict.popitem()从字典中移除最后一个并返回一个键值对<br>dict.keys() dict.value() 输出键和值<br>dict.update(dict1) 将一个字典和另一个融合<br>dict.get(key)  返回值，*<em>不会报错 *</em></li>
-</ul>
-<p>dict.setdefault(键,数据) 键值对不存在添加键值对，存在则不做处理<br>dict.setdefault(key, []).append(value)  用于for循环中没有key就新建列表，有则添加到列表中<br>dict.items()获取所有键和值，用两个遍历变量<br>dict.values() 返回由字典值组成的新视图</p>
-<ul>
-<li>字典方法<br>len(dict) 返回字典的项数<br>iter(dict) 返回以字典的键为元素的迭代器</li>
-</ul>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串为不可变类型，用str()转化为字符串</p>
-<ul>
-<li>字符串操作<br>string.isalpha()<br>所有都是字母返回True<br>string.isdecimal()<br>所有都是数字返回True<br>string.islower()<br>都是小写字母返回True<br>string.isupper()<br>都是大写字母返回True<br>string.startswith(“a”)<br>检查字符串是否是以 a开头，是则返回 True<br>string.endswith(“a”)<br>检查字符串是否是以 a结束，是则返回 True<br>string.find(str, 0,5) 查找数据第一次出现的索引值，找不到返回-1，也可以指定范围查找<br>string.rfind(str) 反向查找<br>string.count(数据) 类似find()，找不到会报错<br>string.index(str) 类似rfind()，找不到会报错<br>string.replace(‘旧内容’,’新内容’, ‘替换次数’) 替换字符串中的内容，实际上是新建一个字符串<br>string.split(str, maxsplit=-1) 以str为分隔符拆分成列表并返回，给出maxsplit则进行maxsplit此拆分<br>string.lower()转为小写<br>string.upper()转为大写<br>string.lstrip() 把左边的空格去除<br>string.rstrip()把右边的空格去除<br>string.strip() 把左右两边的空格去除<br>str.capitalize() 返回原字符串的副本，首个字符大写，其他小写<br>str.casefold() 返回原字符串消除大小写的副本<br>str.center(width,fillchar) 返回长度为width的字符串，原字符串在中间用fillchar填充两边的空位， 若width小于等于len(str)则返回原字符串的副本<br>str.rjust(width[, fillchar])<br>返回长度为 width 的字符串，原字符串在其中靠右对齐,<br>使用指定的 fillchar 填充空位<br>str.encode(encoding=’utf-8’)返回原字符串编码为字节串对象的版本<br>str.format(* args, ** kwargs) 执行字符串格式化操作<br>str.isalnum() 均为字母或数字返回True<br>str.isdecimal() 均为十进制数字返回True<br>str.isdigit()均为数字返回True<br>str.title() 返回原字符串的标题版本</li>
-</ul>
-<p>统计字符串中每一个字符出现的次数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一</span></span><br><span class="line">words = <span class="string">'asasdgasdcxzsad  bbds  adsads  dsad'</span></span><br><span class="line">word1 = list(words)</span><br><span class="line">dict1 = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> word1:    </span><br><span class="line">    dict1.setdefault(word,word1.count(word))</span><br><span class="line">dict1.pop(<span class="string">' '</span>)</span><br><span class="line">print(dict1)</span><br><span class="line"><span class="comment"># 方法二</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">print(Counter(words))</span><br></pre></td></tr></table></figure>
-
-<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><p>元组是不可变类型，用()创建</p>
-<ul>
-<li>元组操作<br>tuple()将任意序列或迭代器转换为元组<br>元组可以进行加法或乘法，返回一个新对象<br>元组可以进行拆包解包操作：a,b=b,a<br>a,b, * rest = tuple可以将多余的元素去除，rest是一个列表<br><code>*</code> 是一个解包符号<br>可以使用count方法统计某个值出现的频率</li>
-</ul>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/6572/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liusu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liusu的小站">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/posts/6572/" class="post-title-link" itemprop="url">模块使用</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-25 14:53:47 / 修改时间：19:28:21" itemprop="dateCreated datePublished" datetime="2019-09-25T14:53:47+08:00">2019-09-25</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="python内置模块"><a href="#python内置模块" class="headerlink" title="python内置模块"></a>python内置模块</h2><h3 id="1-os模块"><a href="#1-os模块" class="headerlink" title="1.os模块"></a>1.os模块</h3><p>os.getcwd()：查看当前工作目录，返回工作目录<br>os.chdir(path)：将当前工作目录更改为指定的路径，path可以是相对路径或绝对路径<br>os.getpid()：返回当前进程ID<br>os.getppid():返回父进程ID<br>os.mkdir(path,mode):path目录，mode-权限数字模式<br>os.remove(path):删除路径为path的文件<br>os.removedirs(path):递归删除目录<br>os.listdir(path):返回path指定的文件夹包含的文件列表<br>os.stat(path):获取文件或目录信息</p>
-<ul>
-<li>os.path<br>os.path.abspath(path):返回绝对路径<br>os.path.dirname(path):返回上一级目录<br>os.path.getsize(path):返回路径的大小(字节单位)<br>os.path.split(path):将路径拆分成一对，返回路径和文件名</li>
-<li><em>os.path.splitext(path):将文件名和扩展名分开*</em></li>
-</ul>
-<h3 id="2-sys模块"><a href="#2-sys模块" class="headerlink" title="2.sys模块"></a>2.sys模块</h3><p>sys.argv[] 获取运行python文件时命令行参数，以列表形式存储 sys.grgv[0]代表当前文件名<br>sys.exit():退出程序<br>sys.getdefaultencoding():获取系统当前编码<br>sys.setdefaultencoding():设置系统默认编码<br>sys.path: 获取指定模块搜索路径的字符串集合</p>
-<h3 id="3-re模块"><a href="#3-re模块" class="headerlink" title="3.re模块"></a>3.re模块</h3><table>
-<thead>
-<tr>
-<th>符号</th>
-<th>解释</th>
-<th>示例</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>.</td>
-<td>匹配任意字符</td>
-<td>b.t</td>
-<td>可以匹配bat / but / b#t / b1t等</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>匹配字母/数字/下划线</td>
-<td>b\wt</td>
-<td>可以匹配bat / b1t / b_t等<br>但不能匹配b#t</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配空白字符（包括\r、\n、\t等）</td>
-<td>love\syou</td>
-<td>可以匹配love you</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>匹配数字</td>
-<td>\d\d</td>
-<td>可以匹配01 / 23 / 99等</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>匹配单词的边界</td>
-<td>\bThe\b</td>
-<td></td>
-</tr>
-<tr>
-<td>^</td>
-<td>匹配字符串的开始</td>
-<td>^The</td>
-<td>可以匹配The开头的字符串</td>
-</tr>
-<tr>
-<td>$</td>
-<td>匹配字符串的结束</td>
-<td>.exe$</td>
-<td>可以匹配.exe结尾的字符串</td>
-</tr>
-<tr>
-<td>\W</td>
-<td>匹配非字母/数字/下划线</td>
-<td>b\Wt</td>
-<td>可以匹配b#t / b@t等<br>但不能匹配but / b1t / b_t等</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>匹配非空白字符</td>
-<td>love\Syou</td>
-<td>可以匹配love#you等<br>但不能匹配love you</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>匹配非数字</td>
-<td>\d\D</td>
-<td>可以匹配9a / 3# / 0F等</td>
-</tr>
-<tr>
-<td>\B</td>
-<td>匹配非单词边界</td>
-<td>\Bio\B</td>
-<td></td>
-</tr>
-<tr>
-<td>[]</td>
-<td>匹配来自字符集的任意单一字符</td>
-<td>[aeiou]</td>
-<td>可以匹配任一元音字母字符</td>
-</tr>
-<tr>
-<td>[^]</td>
-<td>匹配不在字符集中的任意单一字符</td>
-<td>[^aeiou]</td>
-<td>可以匹配任一非元音字母字符</td>
-</tr>
-<tr>
-<td>*</td>
-<td>匹配0次或多次</td>
-<td>\w*</td>
-<td></td>
-</tr>
-<tr>
-<td>+</td>
-<td>匹配1次或多次</td>
-<td>\w+</td>
-<td></td>
-</tr>
-<tr>
-<td>?</td>
-<td>匹配0次或1次</td>
-<td>\w?</td>
-<td></td>
-</tr>
-<tr>
-<td>{N}</td>
-<td>匹配N次</td>
-<td>\w{3}</td>
-<td></td>
-</tr>
-<tr>
-<td>{M,}</td>
-<td>匹配至少M次</td>
-<td>\w{3,}</td>
-<td></td>
-</tr>
-<tr>
-<td>{M,N}</td>
-<td>匹配至少M次至多N次</td>
-<td>\w{3,6}</td>
-<td></td>
-</tr>
-<tr>
-<td>|</td>
-<td>分支</td>
-<td>foo|bar</td>
-<td>可以匹配foo或者bar</td>
-</tr>
-<tr>
-<td>(?#)</td>
-<td>注释</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>(exp)</td>
-<td>匹配exp并捕获到自动命名的组中</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>(?P&lt;name&gt;exp)</td>
-<td>匹配exp并捕获到名为name的组中</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>(?:exp)</td>
-<td>匹配exp但是不捕获匹配的文本</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>(?P=exp)</td>
-<td>匹配exp前面的位置</td>
-<td>\b\w+(?=ing)</td>
-<td>可以匹配I’m dancing中的danc</td>
-</tr>
-<tr>
-<td>(?&lt;=exp)</td>
-<td>匹配exp后面的位置</td>
-<td>(?&lt;=\bdanc)\w+\b</td>
-<td>可以匹配I love dancing and reading中的第一个ing</td>
-</tr>
-<tr>
-<td>(?!exp)</td>
-<td>匹配后面不是exp的位置</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>(?&lt;!exp)</td>
-<td>匹配前面不是exp的位置</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>*?</td>
-<td>重复任意次，但尽可能少重复</td>
-<td>a.*b<br>a.*?b</td>
-<td>将正则表达式应用于aabab，前者会匹配整个字符串aabab，后者会匹配aab和ab两个字符串</td>
-</tr>
-<tr>
-<td>+?</td>
-<td>重复1次或多次，但尽可能少重复</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>??</td>
-<td>重复0次或1次，但尽可能少重复</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>{M,N}?</td>
-<td>重复M到N次，但尽可能少重复</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>{M,}?</td>
-<td>重复M次以上，但尽可能少重复</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>python中re模块使用<br>| 函数                                         | 说明                                                         |<br>| ——————————————– | ———————————————————— |<br>| compile(pattern, flags=0)                    | 编译正则表达式返回正则表达式对象                             |<br>| match(pattern, string, flags=0)              | 用正则表达式匹配字符串 成功返回匹配对象 否则返回None         |<br>| search(pattern, string, flags=0)             | 搜索字符串中第一次出现正则表达式的模式 成功返回匹配对象 否则返回None |<br>| split(pattern, string, maxsplit=0, flags=0)  | 用正则表达式指定的模式分隔符拆分字符串 返回列表              |<br>| sub(pattern, repl, string, count=0, flags=0) | 用指定的字符串替换原字符串中与正则表达式匹配的模式 可以用count指定替换的次数 |<br>| fullmatch(pattern, string, flags=0)          | match函数的完全匹配（从字符串开头到结尾）版本                |<br>| findall(pattern, string, flags=0)            | 查找字符串所有与正则表达式匹配的模式 返回字符串的列表        |<br>| finditer(pattern, string, flags=0)           | 查找字符串所有与正则表达式匹配的模式 返回一个迭代器          |<br>| purge()                                      | 清除隐式编译的正则表达式的缓存                               |<br>| re.I / re.IGNORECASE                         | 忽略大小写匹配标记                                           |<br>| re.M / re.MULTILINE                          | 多行匹配标记                                                 |</p>
-<h3 id="4-datetime模块"><a href="#4-datetime模块" class="headerlink" title="4.datetime模块"></a>4.datetime模块</h3><p>class datetime.date 设置时间(年月日)</p>
-<ul>
-<li>date.replace(year=self.year …) 返回一个设置日期一样的值</li>
-<li><em>date.weekday()返回一个整数代表星期几，星期一为0，星期天为6*</em><br>date.isoweekday()同上星期一为1，星期天为7<br>date.isocalendar()返回年、周、星期的元组<br>date.isoformat() 返回YYYY-MM-DD<br>date.today()返回今天日期</li>
-</ul>
-<p>class datetime.time 设置时间(时分秒时区)<br>class datetime.datetime 上面两个集合</p>
-<ul>
-<li>datetime.today()返回当前本地时间<br>datetime.utcnow()返回标准时间<br>datetime.replace()返回一个设置日期一样的值<br>datetime.astimezone(tz=None)返回一个新的tzinfo属性tz的datetime对象<br>datetime.weekday() datetime.isoweekday()等同date</li>
-</ul>
-<h3 id="5-time模块"><a href="#5-time模块" class="headerlink" title="5.time模块"></a>5.time模块</h3><p>time.sleep(secs)，暂停执行xx秒<br>time.strftime()转换一个元组为时间字符串</p>
-<h3 id="6-hashlib模块"><a href="#6-hashlib模块" class="headerlink" title="6.hashlib模块"></a>6.hashlib模块</h3><p>hashlib模块实现了md5，sha1，sha512等算法，通过hashlib.algorithms_available<br>用法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line">m = hashlib.md5() <span class="comment">#md5方法可以放字符串，但必须encode（）进行编码</span></span><br><span class="line">m.update(<span class="string">'jjjjjj'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">m.update(<span class="string">'ssss'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">print(m.hexdigest()) <span class="comment">#打印十六进制的加密值</span></span><br></pre></td></tr></table></figure>
-
-<p>hashlib.new(name[, data])<br>通用构造函数，name参数表示要使用的hash算法的名称，可以是上述列出的所有hash算法以及OpenSSL库支持的其他算法<br>hash.digest_size<br>hash对象的字节长度<br>hash.block_sizehash<br>对象的内部块大小<br>hash.namehash 对象的名称<br>hash.update(data)传递类字节参数(通常是bytes)更新hash对象</p>
-<h3 id="7-logging模块"><a href="#7-logging模块" class="headerlink" title="7. logging模块"></a>7. logging模块</h3><p>日志等级：DEBUG、INFO、WARNING、ERROR、CRITICAL<br>开发时应使用INFO或DEBUG级别，部署时使用WARNING或ERROR级别</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置日志的记录等级</span></span><br><span class="line">logging.basicConfig(level=logging.DEBUG) <span class="comment"># 调试debug级</span></span><br><span class="line"><span class="comment"># 创建日志记录器，指明日志保存的路径、每个日志文件的最大大小、保存的日志文件个数上限</span></span><br><span class="line">file_log_handler = RotatingFileHandler(<span class="string">"logs/log"</span>, maxBytes=<span class="number">1024</span>*<span class="number">1024</span>*<span class="number">100</span>, backupCount=<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 创建日志记录的格式 日志等级 输入日志信息的文件名 行数 日志信息</span></span><br><span class="line">formatter = logging.Formatter(<span class="string">'%(levelname)s %(filename)s:%(lineno)d %(message)s'</span>)</span><br><span class="line"><span class="comment"># 为刚创建的日志记录器设置日志记录格式</span></span><br><span class="line">file_log_handler.setFormatter(formatter)</span><br><span class="line"><span class="comment"># 为全局的日志工具对象（flask app使用的）添加日志记录器</span></span><br><span class="line">logging.getLogger().addHandler(file_log_handler)</span><br></pre></td></tr></table></figure>
-
-<h2 id="python第三方模块"><a href="#python第三方模块" class="headerlink" title="python第三方模块"></a>python第三方模块</h2><h3 id="1-piiow模块"><a href="#1-piiow模块" class="headerlink" title="1.piiow模块"></a>1.piiow模块</h3>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-  </div>
-
-  
-
-
-          </div>
-          
-
-        </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
+        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/list/" title="流苏小站" target="_blank" rel="noopener">流苏小站</a>
         </li>
-        <li class="sidebar-nav-overview">
-          站点概览
+        
+        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://github.com/liusu214/liusu214.github.io" title="Github" target="_blank" rel="noopener">Github</a>
         </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">liusu</p>
-  <div class="site-description" itemprop="description"></div>
+        
+        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://twitter.com" title="Twitter" target="_blank" rel="noopener">Twitter</a>
+        </li>
+        
+        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="文章分类" target="_blank" rel="noopener">文章分类</a>
+        </li>
+        
+    </ul>
+    <p id="copyright">
+        &copy; 2019 liusu.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a>
+        by Fechin
+    </p>
 </div>
-  <nav class="site-state motion-element">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
+
+<div id="container">
     
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
+<div id="screen">
+    <div id="mark">
+        <div class="layer" data-depth="0.4">
+            <img src="/img/welcome-cover.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
+        </div>
+    </div>
+    <div id="vibrant">
+        <svg viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice">
+            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
+        </svg>
+        <div></div>
+    </div>
+    <div id="header">
+        <div>
+            <a class="image-logo" href="/"></a>
+            <div class="icon-menu switchmenu"></div>
+        </div>
+    </div>
     
-  </nav>
+    <div id="post0">
+        <p>十二月 20, 2019</p>
+        <h2><a href="/posts/13518/" title="ffmpeg使用" class="posttitle">ffmpeg使用</a></h2>
+        <p class="summary">1.常用命令1.1 主要参数-i 设定输入流-f 设定输出格式-ss 开始时间
+1.2 视频参数-r 设定帧速率，...</p>
+    </div>
+    
+</div>
+
+    <div id="primary">
+        
+<div class="post">
+    <a href="/posts/19498/" title="每日精选">
+        <img src="/img/cover.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>九月 25, 2019</p>
+        <h3><a href="/posts/19498/" title="每日精选" class="posttitle">每日精选</a></h3>
+        <p>Do not just seek happiness for yourself. Seek happiness for all. Through kind...</p>
+    </div>
+</div>
 
 
+<div class="post">
+    <a href="/posts/33997/" title="列表、字典、字符串操作">
+        <img src="/img/cover.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>九月 25, 2019</p>
+        <h3><a href="/posts/33997/" title="列表、字典、字符串操作" class="posttitle">列表、字典、字符串操作</a></h3>
+        <p>列表列表是可变类型，用[]或list来定义
 
-      </div>
+列表操作list[i:j:k] 列表从0 &lt;= n &lt; (j-i)/k 的索引号 x = i +...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/posts/6572/" title="模块使用">
+        <img src="/img/cover.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>九月 25, 2019</p>
+        <h3><a href="/posts/6572/" title="模块使用" class="posttitle">模块使用</a></h3>
+        <p>cover:  
+python内置模块1.os模块os.getcwd()：查看当前工作目录，返回工作目录os.chdir(path)：将当前工作目录更改为...</p>
+    </div>
+</div>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">liusu</span>
+    
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.0</div>
+<div id="preview"></div>
 
-        
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
 
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-  </div>
-
-  
-
-
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/muse.js?v=7.4.0"></script>
-<script src="/js/next-boot.js?v=7.4.0"></script>
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-<script src="/node_modules/hexo-helper-live2d/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"node_modules/hexo-helper-live2d/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/node_modules/hexo-helper-live2d/assets/assets/miku.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
