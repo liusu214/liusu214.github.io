@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flask使用 - liusu的小站</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="liusu,"> 
+    <meta name="description" content="[TOC]
+1.Flask基本使用
+1.导入Flask类from flask import Flask
+2.创建app对象app = Flask(__ name __ )
+3.使用装饰器绑定路由和视,"> 
+    <meta name="author" content="liusu"> 
+    <link rel="alternative" href="atom.xml" title="liusu的小站" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">liusu的小站</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Flask使用</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Flask使用</h1>
+        <div class="stuff">
+            <span>十二月 20, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/flask/">flask</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>[TOC]</p>
+<h3 id="1-Flask基本使用"><a href="#1-Flask基本使用" class="headerlink" title="1.Flask基本使用"></a>1.Flask基本使用</h3><ul>
+<li>1.导入Flask类<br>from flask import Flask</li>
+<li>2.创建app对象<br>app = Flask(__ name __ )</li>
+<li>3.使用装饰器绑定路由和视图函数<br>@app.route(路径)</li>
+<li>4.Flask应用程序实例的run方法启动<br>app.run()<br>Flask对象初始化参数<ul>
+<li>import_name Flask程序所在的模块，传<strong>name</strong>就可以</li>
+<li>static_url_path 静态文件访问路径，默认为: /+ static_folder</li>
+<li>static_folder 静态文件存储路径，默认为static</li>
+<li>template_folder 模板文件存储的文件夹，默认为templates</li>
+</ul>
+</li>
+<li>5.加载配置方式</li>
+</ul>
+<p>1.自定义配置类:<br>        class Config(object):<br>            DEBUG = True<br>        app.config.from_object(类名)<br>2.从py文件中加载(工程常用)<br>        app.config.from_pyfile(‘setting.py’)</p>
+<ul>
+<li><p>6.将app对象创建封装到工厂方法（重点）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_flask_app</span><span class="params">(config)</span>:</span></span><br><span class="line">    app = Flask(__name__)</span><br><span class="line">    app.config.from_object(config)</span><br><span class="line">    <span class="comment"># 从环境变量中加载配置信息，会覆盖配置类中同名的配置信息，达到隐藏敏感信息的作用</span></span><br><span class="line">   app.config.from_envvar(<span class="string">'PROJECT_SETTING'</span>,sulent=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> app</span><br><span class="line">app = create_flask_app(配置类名称)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>7.flask新版本运行方案(pycharm中)<br>FLASK_APP=文件名称<br>FLASK_ENV=development 开发模式<br>flask run -h 0.0.0.0 -p 8000 指明ip和端口</p>
+<h3 id="2-Flask应用"><a href="#2-Flask应用" class="headerlink" title="2.Flask应用"></a>2.Flask应用</h3><h3 id="2-1-路由和蓝图"><a href="#2-1-路由和蓝图" class="headerlink" title="2.1 路由和蓝图"></a>2.1 路由和蓝图</h3></li>
+<li><p>1.路由<br>@app.route(路由地址)<br>指定请求方式<br>@app.route(路由地址,methods=[‘GET’,’POST’]</p>
+</li>
+<li><p>2.蓝图<br>blueprint蓝图作用：分模块开发<br>蓝图基本使用步骤：</p>
+</li>
+</ul>
+<p>1.创建蓝图对象 模块的应用对象，理解成：单独某个模块中的app对象。<br>user_bp=Blueprint(‘user’, __ name __ )<br>2.使用蓝图对象绑定视图函数和路由。<br>@user_bp.route(‘/‘)<br>def user_profile():<br>    return ‘user_profile’<br>3.调用app的register_blueprint方法注册蓝图对象<br>app.register_blueprint(user_bp)<br>4.注册蓝图使用url_prefix参数指定前缀<br>app.register_blueprint(user_bp, url_prefix=’/user’)</p>
+<h3 id="2-2-请求与响应"><a href="#2-2-请求与响应" class="headerlink" title="2.2 请求与响应"></a>2.2 请求与响应</h3><ul>
+<li>请求<br>request对象: flask中本次请求的对象，对象的属性就能提取不同请求发送过来的参数<br>requet.args: 提取查询(get)请求的的参数，也是url问号后面的携带的参数。eg: articles?channel_id=1<br>request.from: post请求表单提交的参数<br>request.files: 上传的文件数据<br>request.method: 获取请求方式</li>
+<li>返回<br>jsonify(字典)</li>
+<li>cookie</li>
+</ul>
+<p>1.设置cookie<br>response.set_cookie(key, value, max_age=过期时长)<br>2.获取cookie:<br>response.cookies.get(key,””)<br>3.删除cookie:<br>response.delete_cookie(key)</p>
+<ul>
+<li>session</li>
+</ul>
+<p>1.设置session:<br> session[“key”] = “value”<br>2.获取Session:<br> session.get(“key”, “”)<br>3.删除Session:<br> session.pop(“key”, “”)</p>
+<h3 id="2-3-请求钩子与上下文"><a href="#2-3-请求钩子与上下文" class="headerlink" title="2.3 请求钩子与上下文"></a>2.3 请求钩子与上下文</h3><ul>
+<li>异常捕获<br>@app.errorhandler(错误状态码)</li>
+<li>请求钩子（重要）</li>
+</ul>
+<p> 1.before_first_request(了解)<br> 第一次请求之前，调用<br> 2.before_request(掌握)<br> 每次请求之前，调用，如果在该方法中返回响应，视图函数将不再执行<br> 3.after_request(掌握)<br> 每次请求之后，可以使用response对象统一设置cookie等<br> 4.teardown_request(了解)<br> 每次请求之后是否有错误，会接收一个参数</p>
+<ul>
+<li>请求上下文<br>Flask中有两种上下文：<br>1.请求上下文：request，session<br>2.应用上下文：current_app(代替app),g(全局存储信息)<br>独立使用Flask上下文的方式<br>手动开启应用上下文<br>with app.app_context():<br>手动开启请求上下文<br>with app.request_context(environ):<h3 id="2-4-Flask-RESTful"><a href="#2-4-Flask-RESTful" class="headerlink" title="2.4 Flask_RESTful"></a>2.4 Flask_RESTful</h3>RESTful风格：使用类视图来代替视图函数<ul>
+<li>蓝图中使用Flask-RESTful</li>
+</ul>
+1.创建蓝图对象<br> user_bp = Blueprint(‘user’, <strong>name</strong>)<br>2.使用蓝图对象-创建api对象<br> api = Api(user_bp)<br>3.使用视图类处理业务逻辑<br>4.通过api对象的add_resource添加路由信息<br>5.在app中注册蓝图对象<br> app.register_blueprint(user_bp)</li>
+<li>给类视图中的方法添加装饰器<br>method_decorators = [装饰器1，装饰器2…] 全部请求<br>method_decorators = {<pre><code>&apos;get&apos;: [decorator1, decorator2], # 给get方法添加了decorator1和decorator2装饰器
+&apos;post&apos;: [decorator1]  # 只给post方法添加了decorator1装饰器</code></pre> }<ul>
+<li>请求处理</li>
+</ul>
+1.创建RequestParser对象<br>parser = reqparse.RequestParser()<br>2.向RequestParser对象中添加需要校验或转换的参数声明<br>parser.add_argument(‘rate’, type=int, help=’Rate cannot be converted’, location=’args’)<br>parser.add_argument(‘name’)<br>3.使用parse_args()方法启动检验处理<br>args = parser.parse_args()<br>4.检验之后从 检验结果中获取参数<br>args.rate</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a='liusu214'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

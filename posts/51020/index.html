@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Django开发项目准备 - liusu的小站</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="liusu,"> 
+    <meta name="description" content="开发项目准备
+1.克隆仓库到本地
+1git clone 项目地址(http)
+
+2.创建虚拟环境，安装Django框架
+12mkvirtualenv -p python3 meiduo_mallpi,"> 
+    <meta name="author" content="liusu"> 
+    <link rel="alternative" href="atom.xml" title="liusu的小站" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">liusu的小站</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Django开发项目准备</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Django开发项目准备</h1>
+        <div class="stuff">
+            <span>十二月 20, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Django/">Django</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="开发项目准备"><a href="#开发项目准备" class="headerlink" title="开发项目准备"></a>开发项目准备</h1><ul>
+<li><p>1.克隆仓库到本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone 项目地址(http)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.创建虚拟环境，安装Django框架</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkvirtualenv -p python3 meiduo_mall</span><br><span class="line">pip install django==1.11.11</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.创建工程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject meiduo_mall</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.配置环境</p>
+</li>
+</ul>
+<p>1.新建包settings,作为配置文件目录，将原django的settings.py文件拷贝两份为开发和生产环境配置文件<br>2.指定开发环境配置文件，将manage中的os.environ.setdefault改为开发环境的文件。<br>3.1创建jinja2模板引擎环境配置文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> jinja2 <span class="keyword">import</span> Environment</span><br><span class="line"><span class="keyword">from</span> django.contrib.staticfiles.storage <span class="keyword">import</span> staticfiles_storage</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">jinja2_environment</span><span class="params">(**options)</span>:</span></span><br><span class="line">    env = Environment(**options)</span><br><span class="line">    env.globals.update(&#123;</span><br><span class="line">        <span class="string">'static'</span>: staticfiles_storage.url,</span><br><span class="line">        <span class="string">'url'</span>: reverse,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> env</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">确保可以使用模板引擎中的&#123;&#123; url('') &#125;&#125; &#123;&#123; static('') &#125;&#125;这类语句 </span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+
+<p>3.2 在配置文件中加载jinja2模板引擎环境</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>:              <span class="string">'django.template.backends.jinja2.Jinja2'</span>,  <span class="comment">#    jinja2模板引擎</span></span><br><span class="line">        <span class="string">'DIRS'</span>: [os.path.join(BASE_DIR, <span class="string">'templates'</span>)],</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="string">'context_processors'</span>: [</span><br><span class="line">                <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">                <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">            ],</span><br><span class="line">            <span class="comment"># 补充Jinja2模板引擎环境</span></span><br><span class="line">            <span class="string">'environment'</span>: <span class="string">'meiduo_mall.utils.jinja2_env.jinja2_environment'</span>, </span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>5 配置MySQL数据库</p>
+<blockquote>
+<p>新建MySQL用户<br><code>create user itheima identified by &#39;123456&#39;;</code><br>授权itcast用户访问meiduo_mall数据库<br><code>grant all on meiduo.* to &#39;itheima&#39;@&#39;%&#39;;</code><br>授权结束后刷新特权<br><code>flush privileges;</code></p>
+</blockquote>
+</li>
+<li><p>6 配置Redis数据库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CACHES = &#123;</span><br><span class="line">    <span class="string">"default"</span>: &#123; <span class="comment"># 默认</span></span><br><span class="line">        <span class="string">"BACKEND"</span>:        <span class="string">"django_redis.cache.RedisCache"</span>,</span><br><span class="line">        <span class="string">"LOCATION"</span>: <span class="string">"redis://127.0.0.1:6379/0"</span>,</span><br><span class="line">        <span class="string">"OPTIONS"</span>: &#123;</span><br><span class="line">            <span class="string">"CLIENT_CLASS"</span>: <span class="string">"django_redis.client.DefaultClient"</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"session"</span>: &#123; <span class="comment"># session</span></span><br><span class="line">        <span class="string">"BACKEND"</span>: <span class="string">"django_redis.cache.RedisCache"</span>,</span><br><span class="line">        <span class="string">"LOCATION"</span>: <span class="string">"redis://127.0.0.1:6379/1"</span>,</span><br><span class="line">        <span class="string">"OPTIONS"</span>: &#123;</span><br><span class="line">            <span class="string">"CLIENT_CLASS"</span>: <span class="string">"django_redis.client.DefaultClient"</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">SESSION_ENGINE = <span class="string">"django.contrib.sessions.backends.cache"</span></span><br><span class="line">SESSION_CACHE_ALIAS = <span class="string">"session"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>7.配置工程日志</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">LOGGING = &#123;</span><br><span class="line">    <span class="string">'version'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'disable_existing_loggers'</span>: <span class="literal">False</span>,  <span class="comment"># 是否禁用已经存在的日志器</span></span><br><span class="line">    <span class="string">'formatters'</span>: &#123;  <span class="comment"># 日志信息显示的格式</span></span><br><span class="line">        <span class="string">'verbose'</span>: &#123;</span><br><span class="line">            <span class="string">'format'</span>: <span class="string">'%(levelname)s %(asctime)s %(module)s %(lineno)d %(message)s'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'simple'</span>: &#123;</span><br><span class="line">            <span class="string">'format'</span>: <span class="string">'%(levelname)s %(module)s %(lineno)d %(message)s'</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'filters'</span>: &#123;  <span class="comment"># 对日志进行过滤</span></span><br><span class="line">        <span class="string">'require_debug_true'</span>: &#123;  <span class="comment"># django在debug模式下才输出日志</span></span><br><span class="line">            <span class="string">'()'</span>: <span class="string">'django.utils.log.RequireDebugTrue'</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'handlers'</span>: &#123;  <span class="comment"># 日志处理方法</span></span><br><span class="line">        <span class="string">'console'</span>: &#123;  <span class="comment"># 向终端中输出日志</span></span><br><span class="line">            <span class="string">'level'</span>: <span class="string">'INFO'</span>,</span><br><span class="line">            <span class="string">'filters'</span>: [<span class="string">'require_debug_true'</span>],</span><br><span class="line">            <span class="string">'class'</span>: <span class="string">'logging.StreamHandler'</span>,</span><br><span class="line">            <span class="string">'formatter'</span>: <span class="string">'simple'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'file'</span>: &#123;  <span class="comment"># 向文件中输出日志</span></span><br><span class="line">            <span class="string">'level'</span>: <span class="string">'INFO'</span>,</span><br><span class="line">            <span class="string">'class'</span>: <span class="string">'logging.handlers.RotatingFileHandler'</span>,</span><br><span class="line">            <span class="string">'filename'</span>: os.path.join(os.path.dirname(BASE_DIR), <span class="string">'logs/meiduo.log'</span>),  <span class="comment"># 日志文件的位置</span></span><br><span class="line">            <span class="string">'maxBytes'</span>: <span class="number">300</span> * <span class="number">1024</span> * <span class="number">1024</span>,</span><br><span class="line">            <span class="string">'backupCount'</span>: <span class="number">10</span>,</span><br><span class="line">            <span class="string">'formatter'</span>: <span class="string">'verbose'</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'loggers'</span>: &#123;  <span class="comment"># 日志器</span></span><br><span class="line">        <span class="string">'django'</span>: &#123;  <span class="comment"># 定义了一个名为django的日志器</span></span><br><span class="line">            <span class="string">'handlers'</span>: [<span class="string">'console'</span>, <span class="string">'file'</span>],  <span class="comment"># 可以同时向终端与文件中输出日志</span></span><br><span class="line">            <span class="string">'propagate'</span>: <span class="literal">True</span>,  <span class="comment"># 是否继续传递日志信息</span></span><br><span class="line">            <span class="string">'level'</span>: <span class="string">'INFO'</span>,  <span class="comment"># 日志器接收的最低日志级别</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>1.准备日志记录，放在manage文件同级下<br>2.在logs目录下建立.gitkeep文件就可以上传Git仓库</p>
+<ul>
+<li>7 配置前端静态文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置静态文件加载路径</span></span><br><span class="line">STATICFILES_DIRS = [os.path.join(BASE_DIR, <span class="string">'static'</span>)]</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a='liusu214'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
